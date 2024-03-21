@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>E-Book Store</title>
+	<meta name="description" content="">
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="shortcut icon" href="img/favicon.png"> -->
+
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet'>
+
+	<!-- Syntax Highlighter -->
+	<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
+	<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeDefault.css" media="all">
+
+	<!-- Font Awesome CSS-->
+	<link rel="stylesheet" href="~/css2/font-awesome.min.css">
+	<!-- Normalize/Reset CSS-->
+	<link rel="stylesheet" href="~/css2/normalize.min.css">
+	<!-- Main CSS-->
+	<link rel="stylesheet" href="~/css2/main.css">
+
+</head>
+<html>
+<body id="welcome">
+
+	<aside class="left-sidebar">
+		<div class="logo">
+			<a href="#welcome">
+				<h1>E-Book Store</h1>
+			</a>
+		</div>
+		<nav class="left-nav">
+			<ul id="nav">
+				<li class="current"><a href="">Welcome</a></li>
+				<li><a href="">ADD New Blog</a></li>
+				<li><a href="">Previous Blogs</a></li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="main-wrapper">
+		<div class="main-content">
+			@RenderBody()
+		</div>
+	</div>
+	<footer class="footer">
+	</footer>
+	<!-- Essential JavaScript Libraries
+		==============================================-->
+	<script type="text/javascript" src="~/js2/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="~/js2/jquery.nav.js"></script>
+	<script type="text/javascript" src="~/syntax-highlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="~/syntax-highlighter/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="~/syntax-highlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="~/syntax-highlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="~/syntax-highlighter/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all()
+	</script>
+	<script type="text/javascript" src="~/js2/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Name="AuthorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AuthorDivision" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AuthorArea" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AuthorAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AuthorPhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthorEmail" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="PublisherID" Type="int" />
+    <Property Name="AuthorBIO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AuthorFacebookPageUrl" Type="nvarchar(max)" />
+    <Property Name="AuthorPageUrl" Type="nvarchar(max)" />
+    <Property Name="AuthorImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BlogDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BlogImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BloggerID" Type="int" />
+    <Property Name="PublishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Blogger">
+    <Key>
+      <PropertyRef Name="BloggerID" />
+    </Key>
+    <Property Name="BloggerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BloggerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BloggerAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BloggerDivision" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BloggerArea" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BloggerPhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BloggerEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BloggerImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BloggerBio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BloggerPageUrl" Type="nvarchar(max)" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookTitle" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BookImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BookPrice" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubCategoryID" Type="int" />
+    <Property Name="AuthorID" Type="int" />
+    <Property Name="PublisherID" Type="int" />
+    <Property Name="PublishedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerDivision" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerArea" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerPhoneNumber" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="JournalID" />
+    </Key>
+    <Property Name="JournalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JournalTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JournalDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JournalImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JournalPrice" Type="int" Nullable="false" />
+    <Property Name="SubcategoryID" Type="int" Nullable="false" />
+    <Property Name="PublisherDetails" Type="int" Nullable="false" />
+    <Property Name="PublishedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="PublisherID" />
+    </Key>
+    <Property Name="PublisherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PublisherTitle" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="PublisherImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubcategoryName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="UserRole" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Author\_Publisher">
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publisher">
+        <PropertyRef Name="PublisherID" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="PublisherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author\_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blog_Blogger">
+    <End Role="Blogger" Type="Self.Blogger" Multiplicity="0..1" />
+    <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogger">
+        <PropertyRef Name="BloggerID" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="BloggerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blogger_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Blogger" Type="Self.Blogger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Blogger">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorID" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="AuthorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_Publisher">
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publisher">
+        <PropertyRef Name="PublisherID" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="PublisherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Publisher">
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publisher">
+        <PropertyRef Name="PublisherID" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="PublisherDetails" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="SubcategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserDetails">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Publisher">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blogger" EntityType="Self.Blogger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Author\_Publisher" Association="Self.FK_Author\_Publisher">
+      <End Role="Publisher" EntitySet="Publisher" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author\_User" Association="Self.FK_Author\_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blog_Blogger" Association="Self.FK_Blog_Blogger">
+      <End Role="Blogger" EntitySet="Blogger" />
+      <End Role="Blog" EntitySet="Blog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blogger_User" Association="Self.FK_Blogger_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Blogger" EntitySet="Blogger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Publisher" Association="Self.FK_Book_Publisher">
+      <End Role="Publisher" EntitySet="Publisher" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_SubCategory" Association="Self.FK_Book_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Publisher" Association="Self.FK_Journal_Publisher">
+      <End Role="Publisher" EntitySet="Publisher" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_SubCategory" Association="Self.FK_Journal_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="UserDetails" Association="Self.UserDetails">
+      <End Role="User" EntitySet="User" />
+      <End Role="Publisher" EntitySet="Publisher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
