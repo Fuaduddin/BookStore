@@ -9,8 +9,11 @@ E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\obj\Debug\E-BookStore.DataLayerSqlProvider.csproj.CopyComplete
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\obj\Debug\E-BookStore.DataLayerSqlProvider.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\obj\Debug\E-BookStore.DataLayerSqlProvider.pdb
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\E-BookStore.Utility.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\EntityFramework.dll
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\EntityFramework.xml
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\E-BookStore.DataLayerSqlProvider.dll.config
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\EntityFramework.SqlServer.dll
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\EntityFramework.SqlServer.xml
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\E-BookStore.Utility.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\E-BookStore.Utility.pdb
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\E-BookStore.Utility.dll.config
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.DataLayerSqlProvider\bin\Debug\EntityFramework.xml

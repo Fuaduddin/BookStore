@@ -9,4 +9,3 @@ E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.Utility\bin\Debug\EntityFramework.xml
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.Utility\bin\Debug\EntityFramework.SqlServer.xml
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.Utility\obj\Debug\E-BookStore.Utility.csproj.CopyComplete
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.Utility\obj\Debug\E-BookStore.Utility.csproj.AssemblyReference.cache

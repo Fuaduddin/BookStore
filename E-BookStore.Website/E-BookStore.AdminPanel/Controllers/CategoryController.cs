@@ -15,7 +15,7 @@ namespace E_BookStore.AdminPanel.Controllers
 		{
             SuperAdminandAdminViewModel category= new SuperAdminandAdminViewModel();
             category.Category= new CategoryModel();
-         //   category.CategoryList = CategoryandSubcategoryManager.GetAllCategories();
+            category.CategoryList = CategoryandSubcategoryManager.GetAllCategories();
 			return View("Index", category);
 		}
 		[HttpPost]

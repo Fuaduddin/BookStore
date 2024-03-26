@@ -184,6 +184,10 @@
       <Project>{3fa7a3b3-3083-49e4-b42c-19ca0c42506f}</Project>
       <Name>E-BookStore.BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\E-BookStore.Core\E-BookStore.GlobalSetting\E-BookStore.GlobalSetting.csproj">
+      <Project>{ffd93223-4e14-434e-af2c-99a6c8457052}</Project>
+      <Name>E-BookStore.GlobalSetting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\E-BookStore.Core\E-BookStore.Model\E-BookStore.Model.csproj">
       <Project>{a16931a6-c7be-426a-aa49-74b722aa6d31}</Project>
       <Name>E-BookStore.Model</Name>

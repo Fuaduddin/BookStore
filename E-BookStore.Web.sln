@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34408.163
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34407.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-BookStore.Web", "E-BookStore.Web\E-BookStore.Web.csproj", "{7C3B777D-6747-48DD-99AC-300B907708A4}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-BookStore.Model", "E-BookStore.Core\E-BookStore.Model\E-BookStore.Model.csproj", "{A16931A6-C7BE-426A-AA49-74B722AA6D31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-BookStore.Utility", "E-BookStore.Core\E-BookStore.Utility\E-BookStore.Utility.csproj", "{CBF0E1B5-97E3-4DBE-8CDD-377BD962D935}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-BookStore.GlobalSetting", "E-BookStore.Core\E-BookStore.GlobalSetting\E-BookStore.GlobalSetting.csproj", "{FFD93223-4E14-434E-AF2C-99A6C8457052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{CBF0E1B5-97E3-4DBE-8CDD-377BD962D935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF0E1B5-97E3-4DBE-8CDD-377BD962D935}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF0E1B5-97E3-4DBE-8CDD-377BD962D935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD93223-4E14-434E-AF2C-99A6C8457052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD93223-4E14-434E-AF2C-99A6C8457052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD93223-4E14-434E-AF2C-99A6C8457052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD93223-4E14-434E-AF2C-99A6C8457052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{E49BFB75-0188-4E74-8F3A-6B72769B0109} = {3666FB06-FE58-4893-A6FD-E12872926476}
 		{A16931A6-C7BE-426A-AA49-74B722AA6D31} = {3666FB06-FE58-4893-A6FD-E12872926476}
 		{CBF0E1B5-97E3-4DBE-8CDD-377BD962D935} = {3666FB06-FE58-4893-A6FD-E12872926476}
+		{FFD93223-4E14-434E-AF2C-99A6C8457052} = {3666FB06-FE58-4893-A6FD-E12872926476}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A250017-BF12-4037-9DA9-213C480E0A98}

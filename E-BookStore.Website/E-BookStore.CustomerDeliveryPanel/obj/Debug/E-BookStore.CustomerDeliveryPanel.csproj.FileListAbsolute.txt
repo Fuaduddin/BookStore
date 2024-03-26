@@ -83,10 +83,13 @@ E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.Model.pdb
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.DataLayerSqlProvider.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.DataLayer.dll
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.Utility.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\EntityFramework.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.DataLayerSqlProvider.pdb
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.DataLayer.pdb
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\EntityFramework.xml
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.DataLayerSqlProvider.dll.config
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.GlobalSetting.dll
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.GlobalSetting.pdb
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.Utility.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.Utility.pdb
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\E-BookStore.Utility.dll.config
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Website\E-BookStore.CustomerDeliveryPanel\bin\EntityFramework.xml

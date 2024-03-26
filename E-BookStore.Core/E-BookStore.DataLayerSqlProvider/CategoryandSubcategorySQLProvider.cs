@@ -8,13 +8,14 @@ using E_BookStore.DataLayerSqlProvider;
 using System.Data.SqlClient;
 using E_BookStore.DataLayer;
 using System.Data;
-using E_BookStore.Utility.DB;
+using E_BookStore.Utility.DataBase;
+using E_BookStore.Utility;
 
 namespace E_BookStore.DataLayerSqlProvider
 {
     public class CategoryandSubcategorySQLProvider : ICategoryandSubcategoryDatalayer
     {
-        private static readonly Entities DatabaseProvider = new Entities();
+        private static readonly Entity DatabaseProvider;
         // Category
         public long AddNewCategory(CategoryModel category)
         {
@@ -23,7 +24,16 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    var DBcategory = new Category()
+                    {
+                        CategoryName = category.CategoryName
+                    };
+                    //var DBcategory = new Category();
+                    //DBcategory.CategoryName = category.CategoryName;
+                    //DBcategory.SubCategories =new List<SubCategory>();
+                    DatabaseProvider._dbContext.Categories.Add(DBcategory);
+                    DatabaseProvider._dbContext.SaveChanges();
+                    CategoryID = DBcategory.CategoryID;
                 }
                 catch(Exception ex)
                 {
@@ -39,7 +49,12 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    var CategoryDetails = DatabaseProvider._dbContext.Categories.Where(x => x.CategoryID == category.CategoryID).FirstOrDefault();
+                    if (CategoryDetails != null)
+                    {
+                        CategoryDetails.CategoryName = category.CategoryName;
+                        DatabaseProvider._dbContext.SaveChanges();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -52,14 +67,18 @@ namespace E_BookStore.DataLayerSqlProvider
         public List<CategoryModel> GetCategories()
         {
             List<CategoryModel> CategoryList = new List<CategoryModel>();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
+            //try
+            //{
+            //    CategoryList = DatabaseProvider._dbContext.Categories.Select(x => new CategoryModel()
+            //    {
+            //        CategoryID = x.CategoryID,
+            //        CategoryName = x.CategoryName
+            //    }).ToList();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.ToString());
+            //}
             return CategoryList;
         }
         public bool DeleteCategory(int id)
@@ -69,7 +88,8 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    var CategoryDetails = DatabaseProvider._dbContext.Categories.Where(x => x.CategoryID == id).FirstOrDefault();
+                    DatabaseProvider._dbContext.Categories.Remove(CategoryDetails);
                 }
                 catch (Exception ex)
                 {
@@ -86,7 +106,11 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    category=DatabaseProvider._dbContext.Categories.Select(x=> new CategoryModel()
+                    {
+                        CategoryID= x.CategoryID,
+                        CategoryName= x.CategoryName
+                    }).Where(x=>x.CategoryID==id).FirstOrDefault();
                 }
                 catch (Exception ex)
                 {
@@ -105,7 +129,13 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    var Subcategory = new SubCategory()
+                    {
+                        SubcategoryName = subcategory.SubcategoryName,
+                        //CategoryID = subcategory.CategoryID
+                    };
+                    DatabaseProvider._dbContext.SubCategories.Add(Subcategory);
+                    SubcategoryID = Subcategory.SubCategoryID;
                 }
                 catch (Exception ex)
                 {
@@ -121,7 +151,13 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    var SubcategoryDetails=DatabaseProvider._dbContext.SubCategories.Where(x=>x.SubCategoryID==subcategory.SubCategoryID).FirstOrDefault();
+                    if(SubcategoryDetails != null)
+                    {
+                        SubcategoryDetails.SubcategoryName= subcategory.SubcategoryName;
+                        //SubcategoryDetails.CategoryID = subcategory.CategoryID;
+                        DatabaseProvider._dbContext.SaveChanges();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -137,7 +173,12 @@ namespace E_BookStore.DataLayerSqlProvider
             List<SubCategoryModel> SubCategoryList = new List<SubCategoryModel>();
             try
             {
-
+                SubCategoryList = DatabaseProvider._dbContext.SubCategories.Select(Subcategory => new SubCategoryModel()
+                {
+                    SubCategoryID = Subcategory.SubCategoryID,
+                    SubcategoryName = Subcategory.SubcategoryName,
+                    //CategoryDetails =(CategoryModel)DatabaseProvider.Categories.Where(category => category.CategoryID == Subcategory.CategoryID).FirstOrDefault()
+                }).ToList();
             }
             catch (Exception ex)
             {
@@ -152,7 +193,8 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    var SubcategoryDetails = DatabaseProvider._dbContext.SubCategories.Where(x => x.SubCategoryID == id).FirstOrDefault();
+                    DatabaseProvider._dbContext.SubCategories.Remove(SubcategoryDetails);
                 }
                 catch (Exception ex)
                 {
@@ -170,7 +212,7 @@ namespace E_BookStore.DataLayerSqlProvider
             {
                 try
                 {
-
+                    //Subcategory = (SubCategoryModel) DatabaseProvider.SubCategories.Where(x => x.SubCategoryID == id).FirstOrDefault();
                 }
                 catch (Exception ex)
                 {

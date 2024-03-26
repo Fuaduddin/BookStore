@@ -1,0 +1,1520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssignmentJournal">
+          <Key>
+            <PropertyRef Name="JournalDeliveryAssng" />
+          </Key>
+          <Property Name="JournalDeliveryAssng" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="DeliveryManID" Type="int" Nullable="false" />
+          <Property Name="PaymentUpdate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorDivision" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorArea" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorPhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AuthorEmail" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="PublisherID" Type="int" />
+          <Property Name="AuthorBIO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AuthorFacebookPageUrl" Type="nvarchar(max)" />
+          <Property Name="AuthorPageUrl" Type="nvarchar(max)" />
+          <Property Name="AuthorImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogTitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BlogDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BlogImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BloggerID" Type="int" />
+          <Property Name="PublishedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Blogger">
+          <Key>
+            <PropertyRef Name="BloggerID" />
+          </Key>
+          <Property Name="BloggerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BloggerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BloggerAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BloggerDivision" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BloggerArea" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BloggerPhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BloggerEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BloggerImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BloggerBio" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BloggerPageUrl" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookTitle" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="BookDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BookImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BookPrice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="AuthorID" Type="int" />
+          <Property Name="PublisherID" Type="int" />
+          <Property Name="PublishedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BookOrderAssign">
+          <Key>
+            <PropertyRef Name="BookorderID" />
+          </Key>
+          <Property Name="BookorderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="DeliveryManID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Borrow">
+          <Key>
+            <PropertyRef Name="BorrowID" />
+          </Key>
+          <Property Name="BorrowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="CusomerID" Type="int" Nullable="false" />
+          <Property Name="BorrowDate" Type="datetime" Nullable="false" />
+          <Property Name="ReturnDate" Type="datetime" Nullable="false" />
+          <Property Name="ReturnUpdate" Type="int" />
+        </EntityType>
+        <EntityType Name="BuyBook">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="TotalCost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BuyJournal">
+          <Key>
+            <PropertyRef Name="JournalOrderID" />
+          </Key>
+          <Property Name="JournalOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="TotalCost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BuyJournalList">
+          <Key>
+            <PropertyRef Name="BuyJournalID" />
+          </Key>
+          <Property Name="BuyJournalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JournalID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerDivision" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerArea" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerPhoneNumber" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryMan">
+          <Key>
+            <PropertyRef Name="DeliveryManID" />
+          </Key>
+          <Property Name="DeliveryManID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryManName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeliveryManAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="DeliveryManImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="JournalID" />
+          </Key>
+          <Property Name="JournalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JournalTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JournalDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JournalImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JournalPrice" Type="int" Nullable="false" />
+          <Property Name="SubcategoryID" Type="int" Nullable="false" />
+          <Property Name="PublisherDetails" Type="int" Nullable="false" />
+          <Property Name="PublishedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderBookList">
+          <Key>
+            <PropertyRef Name="BuyBookID" />
+          </Key>
+          <Property Name="BuyBookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="OderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublisherTitle" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="PublisherImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubcategoryName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryDetailsID" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="UserRole" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="CustomerDetails">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="BuyBook" Type="Self.BuyBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BuyBook">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssignmentJournal_BuyJournal">
+          <End Role="BuyJournal" Type="Self.BuyJournal" Multiplicity="1" />
+          <End Role="AssignmentJournal" Type="Self.AssignmentJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyJournal">
+              <PropertyRef Name="JournalOrderID" />
+            </Principal>
+            <Dependent Role="AssignmentJournal">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssignmentJournal_DeliveryMan">
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="1" />
+          <End Role="AssignmentJournal" Type="Self.AssignmentJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMan">
+              <PropertyRef Name="DeliveryManID" />
+            </Principal>
+            <Dependent Role="AssignmentJournal">
+              <PropertyRef Name="DeliveryManID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author\_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author\_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_Blogger">
+          <End Role="Blogger" Type="Self.Blogger" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogger">
+              <PropertyRef Name="BloggerID" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="BloggerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blogger_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Blogger" Type="Self.Blogger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Blogger">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOrderAssign_BuyBook">
+          <End Role="BuyBook" Type="Self.BuyBook" Multiplicity="1" />
+          <End Role="BookOrderAssign" Type="Self.BookOrderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyBook">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="BookOrderAssign">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOrderAssign_DeliveryMan">
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="1" />
+          <End Role="BookOrderAssign" Type="Self.BookOrderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMan">
+              <PropertyRef Name="DeliveryManID" />
+            </Principal>
+            <Dependent Role="BookOrderAssign">
+              <PropertyRef Name="DeliveryManID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Borrow_Book">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Borrow">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Borrow_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Borrow">
+              <PropertyRef Name="CusomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyJournal_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="BuyJournal" Type="Self.BuyJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BuyJournal">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyJournalList_BuyJournal">
+          <End Role="BuyJournal" Type="Self.BuyJournal" Multiplicity="1" />
+          <End Role="BuyJournalList" Type="Self.BuyJournalList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyJournal">
+              <PropertyRef Name="JournalOrderID" />
+            </Principal>
+            <Dependent Role="BuyJournalList">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyJournalList_Journal">
+          <End Role="Journal" Type="Self.Journal" Multiplicity="1" />
+          <End Role="BuyJournalList" Type="Self.BuyJournalList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Journal">
+              <PropertyRef Name="JournalID" />
+            </Principal>
+            <Dependent Role="BuyJournalList">
+              <PropertyRef Name="JournalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMan_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="DeliveryMan">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="PublisherDetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="SubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderBookList_Book">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="OrderBookList" Type="Self.OrderBookList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="OrderBookList">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderBookList_OrderBookList">
+          <End Role="BuyBook" Type="Self.BuyBook" Multiplicity="1" />
+          <End Role="OrderBookList" Type="Self.OrderBookList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyBook">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderBookList">
+              <PropertyRef Name="OderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryDetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserDetails">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Publisher">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="AssignmentJournal" EntityType="Self.AssignmentJournal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogger" EntityType="Self.Blogger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookOrderAssign" EntityType="Self.BookOrderAssign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Borrow" EntityType="Self.Borrow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyBook" EntityType="Self.BuyBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyJournal" EntityType="Self.BuyJournal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyJournalList" EntityType="Self.BuyJournalList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryMan" EntityType="Self.DeliveryMan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderBookList" EntityType="Self.OrderBookList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="CustomerDetails" Association="Self.CustomerDetails">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="BuyBook" EntitySet="BuyBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssignmentJournal_BuyJournal" Association="Self.FK_AssignmentJournal_BuyJournal">
+            <End Role="BuyJournal" EntitySet="BuyJournal" />
+            <End Role="AssignmentJournal" EntitySet="AssignmentJournal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssignmentJournal_DeliveryMan" Association="Self.FK_AssignmentJournal_DeliveryMan">
+            <End Role="DeliveryMan" EntitySet="DeliveryMan" />
+            <End Role="AssignmentJournal" EntitySet="AssignmentJournal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author\_Publisher" Association="Self.FK_Author\_Publisher">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author\_User" Association="Self.FK_Author\_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_Blogger" Association="Self.FK_Blog_Blogger">
+            <End Role="Blogger" EntitySet="Blogger" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blogger_User" Association="Self.FK_Blogger_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Blogger" EntitySet="Blogger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Publisher" Association="Self.FK_Book_Publisher">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_SubCategory" Association="Self.FK_Book_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOrderAssign_BuyBook" Association="Self.FK_BookOrderAssign_BuyBook">
+            <End Role="BuyBook" EntitySet="BuyBook" />
+            <End Role="BookOrderAssign" EntitySet="BookOrderAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOrderAssign_DeliveryMan" Association="Self.FK_BookOrderAssign_DeliveryMan">
+            <End Role="DeliveryMan" EntitySet="DeliveryMan" />
+            <End Role="BookOrderAssign" EntitySet="BookOrderAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Borrow_Book" Association="Self.FK_Borrow_Book">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="Borrow" EntitySet="Borrow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Borrow_Customer" Association="Self.FK_Borrow_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Borrow" EntitySet="Borrow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyJournal_Customer" Association="Self.FK_BuyJournal_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="BuyJournal" EntitySet="BuyJournal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyJournalList_BuyJournal" Association="Self.FK_BuyJournalList_BuyJournal">
+            <End Role="BuyJournal" EntitySet="BuyJournal" />
+            <End Role="BuyJournalList" EntitySet="BuyJournalList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyJournalList_Journal" Association="Self.FK_BuyJournalList_Journal">
+            <End Role="Journal" EntitySet="Journal" />
+            <End Role="BuyJournalList" EntitySet="BuyJournalList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMan_User" Association="Self.FK_DeliveryMan_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="DeliveryMan" EntitySet="DeliveryMan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Publisher" Association="Self.FK_Journal_Publisher">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_SubCategory" Association="Self.FK_Journal_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderBookList_Book" Association="Self.FK_OrderBookList_Book">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="OrderBookList" EntitySet="OrderBookList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderBookList_OrderBookList" Association="Self.FK_OrderBookList_OrderBookList">
+            <End Role="BuyBook" EntitySet="BuyBook" />
+            <End Role="OrderBookList" EntitySet="OrderBookList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="UserDetails" Association="Self.UserDetails">
+            <End Role="User" EntitySet="User" />
+            <End Role="Publisher" EntitySet="Publisher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AssignmentJournal">
+          <Key>
+            <PropertyRef Name="JournalDeliveryAssng" />
+          </Key>
+          <Property Name="JournalDeliveryAssng" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryManID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentUpdate" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BuyJournal" Relationship="Self.FK_AssignmentJournal_BuyJournal" FromRole="AssignmentJournal" ToRole="BuyJournal" />
+          <NavigationProperty Name="DeliveryMan" Relationship="Self.FK_AssignmentJournal_DeliveryMan" FromRole="AssignmentJournal" ToRole="DeliveryMan" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorDivision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorPhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorEmail" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PublisherID" Type="Int32" />
+          <Property Name="AuthorBIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorFacebookPageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorPageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK_Author__Publisher" FromRole="Author" ToRole="Publisher" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Author__User" FromRole="Author" ToRole="User" />
+          <NavigationProperty Name="Books" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BlogDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BlogImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerID" Type="Int32" />
+          <Property Name="PublishedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Blogger" Relationship="Self.FK_Blog_Blogger" FromRole="Blog" ToRole="Blogger" />
+        </EntityType>
+        <EntityType Name="Blogger">
+          <Key>
+            <PropertyRef Name="BloggerID" />
+          </Key>
+          <Property Name="BloggerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BloggerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerDivision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BloggerPageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blogs" Relationship="Self.FK_Blog_Blogger" FromRole="Blogger" ToRole="Blog" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Blogger_User" FromRole="Blogger" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookTitle" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="BookDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BookImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BookPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="AuthorID" Type="Int32" />
+          <Property Name="PublisherID" Type="Int32" />
+          <Property Name="PublishedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK_Book_Publisher" FromRole="Book" ToRole="Publisher" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.FK_Book_SubCategory" FromRole="Book" ToRole="SubCategory" />
+          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
+          <NavigationProperty Name="OrderBookLists" Relationship="Self.FK_OrderBookList_Book" FromRole="Book" ToRole="OrderBookList" />
+        </EntityType>
+        <EntityType Name="BookOrderAssign">
+          <Key>
+            <PropertyRef Name="BookorderID" />
+          </Key>
+          <Property Name="BookorderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryManID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BuyBook" Relationship="Self.FK_BookOrderAssign_BuyBook" FromRole="BookOrderAssign" ToRole="BuyBook" />
+          <NavigationProperty Name="DeliveryMan" Relationship="Self.FK_BookOrderAssign_DeliveryMan" FromRole="BookOrderAssign" ToRole="DeliveryMan" />
+        </EntityType>
+        <EntityType Name="Borrow">
+          <Key>
+            <PropertyRef Name="BorrowID" />
+          </Key>
+          <Property Name="BorrowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="CusomerID" Type="Int32" Nullable="false" />
+          <Property Name="BorrowDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReturnUpdate" Type="Int32" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Borrow_Book" FromRole="Borrow" ToRole="Book" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Borrow_Customer" FromRole="Borrow" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="BuyBook">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="TotalCost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BookOrderAssigns" Relationship="Self.FK_BookOrderAssign_BuyBook" FromRole="BuyBook" ToRole="BookOrderAssign" />
+          <NavigationProperty Name="Customer" Relationship="Self.CustomerDetails" FromRole="BuyBook" ToRole="Customer" />
+          <NavigationProperty Name="OrderBookLists" Relationship="Self.FK_OrderBookList_OrderBookList" FromRole="BuyBook" ToRole="OrderBookList" />
+        </EntityType>
+        <EntityType Name="BuyJournal">
+          <Key>
+            <PropertyRef Name="JournalOrderID" />
+          </Key>
+          <Property Name="JournalOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="TotalCost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="AssignmentJournals" Relationship="Self.FK_AssignmentJournal_BuyJournal" FromRole="BuyJournal" ToRole="AssignmentJournal" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_BuyJournal_Customer" FromRole="BuyJournal" ToRole="Customer" />
+          <NavigationProperty Name="BuyJournalLists" Relationship="Self.FK_BuyJournalList_BuyJournal" FromRole="BuyJournal" ToRole="BuyJournalList" />
+        </EntityType>
+        <EntityType Name="BuyJournalList">
+          <Key>
+            <PropertyRef Name="BuyJournalID" />
+          </Key>
+          <Property Name="BuyJournalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JournalID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BuyJournal" Relationship="Self.FK_BuyJournalList_BuyJournal" FromRole="BuyJournalList" ToRole="BuyJournal" />
+          <NavigationProperty Name="Journal" Relationship="Self.FK_BuyJournalList_Journal" FromRole="BuyJournalList" ToRole="Journal" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SubCategories" Relationship="Self.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerDivision" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CustomerArea" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CustomerPhoneNumber" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Customer" FromRole="Customer" ToRole="Borrow" />
+          <NavigationProperty Name="BuyBooks" Relationship="Self.CustomerDetails" FromRole="Customer" ToRole="BuyBook" />
+          <NavigationProperty Name="BuyJournals" Relationship="Self.FK_BuyJournal_Customer" FromRole="Customer" ToRole="BuyJournal" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Customer_User" FromRole="Customer" ToRole="User" />
+        </EntityType>
+        <EntityType Name="DeliveryMan">
+          <Key>
+            <PropertyRef Name="DeliveryManID" />
+          </Key>
+          <Property Name="DeliveryManID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryManName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DeliveryManAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeliveryManImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="AssignmentJournals" Relationship="Self.FK_AssignmentJournal_DeliveryMan" FromRole="DeliveryMan" ToRole="AssignmentJournal" />
+          <NavigationProperty Name="BookOrderAssigns" Relationship="Self.FK_BookOrderAssign_DeliveryMan" FromRole="DeliveryMan" ToRole="BookOrderAssign" />
+          <NavigationProperty Name="User" Relationship="Self.FK_DeliveryMan_User" FromRole="DeliveryMan" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="JournalID" />
+          </Key>
+          <Property Name="JournalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JournalTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JournalDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JournalImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JournalPrice" Type="Int32" Nullable="false" />
+          <Property Name="SubcategoryID" Type="Int32" Nullable="false" />
+          <Property Name="PublisherDetails" Type="Int32" Nullable="false" />
+          <Property Name="PublishedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BuyJournalLists" Relationship="Self.FK_BuyJournalList_Journal" FromRole="Journal" ToRole="BuyJournalList" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK_Journal_Publisher" FromRole="Journal" ToRole="Publisher" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.FK_Journal_SubCategory" FromRole="Journal" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="OrderBookList">
+          <Key>
+            <PropertyRef Name="BuyBookID" />
+          </Key>
+          <Property Name="BuyBookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="OderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_OrderBookList_Book" FromRole="OrderBookList" ToRole="Book" />
+          <NavigationProperty Name="BuyBook" Relationship="Self.FK_OrderBookList_OrderBookList" FromRole="OrderBookList" ToRole="BuyBook" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherTitle" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PublisherImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Authors" Relationship="Self.FK_Author__Publisher" FromRole="Publisher" ToRole="Author" />
+          <NavigationProperty Name="Books" Relationship="Self.FK_Book_Publisher" FromRole="Publisher" ToRole="Book" />
+          <NavigationProperty Name="Journals" Relationship="Self.FK_Journal_Publisher" FromRole="Publisher" ToRole="Journal" />
+          <NavigationProperty Name="User" Relationship="Self.UserDetails" FromRole="Publisher" ToRole="User" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubcategoryName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CategoryDetailsID" Type="Int32" />
+          <NavigationProperty Name="Books" Relationship="Self.FK_Book_SubCategory" FromRole="SubCategory" ToRole="Book" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+          <NavigationProperty Name="Journals" Relationship="Self.FK_Journal_SubCategory" FromRole="SubCategory" ToRole="Journal" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Authors" Relationship="Self.FK_Author__User" FromRole="User" ToRole="Author" />
+          <NavigationProperty Name="Bloggers" Relationship="Self.FK_Blogger_User" FromRole="User" ToRole="Blogger" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_User" FromRole="User" ToRole="Customer" />
+          <NavigationProperty Name="DeliveryMen" Relationship="Self.FK_DeliveryMan_User" FromRole="User" ToRole="DeliveryMan" />
+          <NavigationProperty Name="Publishers" Relationship="Self.UserDetails" FromRole="User" ToRole="Publisher" />
+        </EntityType>
+        <Association Name="FK_AssignmentJournal_BuyJournal">
+          <End Role="BuyJournal" Type="Self.BuyJournal" Multiplicity="1" />
+          <End Role="AssignmentJournal" Type="Self.AssignmentJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyJournal">
+              <PropertyRef Name="JournalOrderID" />
+            </Principal>
+            <Dependent Role="AssignmentJournal">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssignmentJournal_DeliveryMan">
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="1" />
+          <End Role="AssignmentJournal" Type="Self.AssignmentJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMan">
+              <PropertyRef Name="DeliveryManID" />
+            </Principal>
+            <Dependent Role="AssignmentJournal">
+              <PropertyRef Name="DeliveryManID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author__Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author__User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_Blogger">
+          <End Role="Blogger" Type="Self.Blogger" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogger">
+              <PropertyRef Name="BloggerID" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="BloggerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blogger_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Blogger" Type="Self.Blogger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Blogger">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Borrow_Book">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Borrow">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderBookList_Book">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="OrderBookList" Type="Self.OrderBookList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="OrderBookList">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOrderAssign_BuyBook">
+          <End Role="BuyBook" Type="Self.BuyBook" Multiplicity="1" />
+          <End Role="BookOrderAssign" Type="Self.BookOrderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyBook">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="BookOrderAssign">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOrderAssign_DeliveryMan">
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="1" />
+          <End Role="BookOrderAssign" Type="Self.BookOrderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMan">
+              <PropertyRef Name="DeliveryManID" />
+            </Principal>
+            <Dependent Role="BookOrderAssign">
+              <PropertyRef Name="DeliveryManID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Borrow_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Borrow">
+              <PropertyRef Name="CusomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerDetails">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="BuyBook" Type="Self.BuyBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BuyBook">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderBookList_OrderBookList">
+          <End Role="BuyBook" Type="Self.BuyBook" Multiplicity="1" />
+          <End Role="OrderBookList" Type="Self.OrderBookList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyBook">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderBookList">
+              <PropertyRef Name="OderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyJournal_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="BuyJournal" Type="Self.BuyJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BuyJournal">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyJournalList_BuyJournal">
+          <End Role="BuyJournal" Type="Self.BuyJournal" Multiplicity="1" />
+          <End Role="BuyJournalList" Type="Self.BuyJournalList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyJournal">
+              <PropertyRef Name="JournalOrderID" />
+            </Principal>
+            <Dependent Role="BuyJournalList">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyJournalList_Journal">
+          <End Role="Journal" Type="Self.Journal" Multiplicity="1" />
+          <End Role="BuyJournalList" Type="Self.BuyJournalList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Journal">
+              <PropertyRef Name="JournalID" />
+            </Principal>
+            <Dependent Role="BuyJournalList">
+              <PropertyRef Name="JournalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryDetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMan_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="DeliveryMan">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="PublisherDetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="SubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserDetails">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Publisher">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssignmentJournals" EntityType="Self.AssignmentJournal" />
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="Bloggers" EntityType="Self.Blogger" />
+          <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="BookOrderAssigns" EntityType="Self.BookOrderAssign" />
+          <EntitySet Name="Borrows" EntityType="Self.Borrow" />
+          <EntitySet Name="BuyBooks" EntityType="Self.BuyBook" />
+          <EntitySet Name="BuyJournals" EntityType="Self.BuyJournal" />
+          <EntitySet Name="BuyJournalLists" EntityType="Self.BuyJournalList" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="DeliveryMen" EntityType="Self.DeliveryMan" />
+          <EntitySet Name="Journals" EntityType="Self.Journal" />
+          <EntitySet Name="OrderBookLists" EntityType="Self.OrderBookList" />
+          <EntitySet Name="Publishers" EntityType="Self.Publisher" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_AssignmentJournal_BuyJournal" Association="Self.FK_AssignmentJournal_BuyJournal">
+            <End Role="BuyJournal" EntitySet="BuyJournals" />
+            <End Role="AssignmentJournal" EntitySet="AssignmentJournals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssignmentJournal_DeliveryMan" Association="Self.FK_AssignmentJournal_DeliveryMan">
+            <End Role="DeliveryMan" EntitySet="DeliveryMen" />
+            <End Role="AssignmentJournal" EntitySet="AssignmentJournals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author__Publisher" Association="Self.FK_Author__Publisher">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="Author" EntitySet="Authors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author__User" Association="Self.FK_Author__User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Author" EntitySet="Authors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Book" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_Blogger" Association="Self.FK_Blog_Blogger">
+            <End Role="Blogger" EntitySet="Bloggers" />
+            <End Role="Blog" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blogger_User" Association="Self.FK_Blogger_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Blogger" EntitySet="Bloggers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Publisher" Association="Self.FK_Book_Publisher">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="Book" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_SubCategory" Association="Self.FK_Book_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="Book" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Borrow_Book" Association="Self.FK_Borrow_Book">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Borrow" EntitySet="Borrows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderBookList_Book" Association="Self.FK_OrderBookList_Book">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="OrderBookList" EntitySet="OrderBookLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOrderAssign_BuyBook" Association="Self.FK_BookOrderAssign_BuyBook">
+            <End Role="BuyBook" EntitySet="BuyBooks" />
+            <End Role="BookOrderAssign" EntitySet="BookOrderAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOrderAssign_DeliveryMan" Association="Self.FK_BookOrderAssign_DeliveryMan">
+            <End Role="DeliveryMan" EntitySet="DeliveryMen" />
+            <End Role="BookOrderAssign" EntitySet="BookOrderAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Borrow_Customer" Association="Self.FK_Borrow_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Borrow" EntitySet="Borrows" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerDetails" Association="Self.CustomerDetails">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="BuyBook" EntitySet="BuyBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderBookList_OrderBookList" Association="Self.FK_OrderBookList_OrderBookList">
+            <End Role="BuyBook" EntitySet="BuyBooks" />
+            <End Role="OrderBookList" EntitySet="OrderBookLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyJournal_Customer" Association="Self.FK_BuyJournal_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="BuyJournal" EntitySet="BuyJournals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyJournalList_BuyJournal" Association="Self.FK_BuyJournalList_BuyJournal">
+            <End Role="BuyJournal" EntitySet="BuyJournals" />
+            <End Role="BuyJournalList" EntitySet="BuyJournalLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyJournalList_Journal" Association="Self.FK_BuyJournalList_Journal">
+            <End Role="Journal" EntitySet="Journals" />
+            <End Role="BuyJournalList" EntitySet="BuyJournalLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMan_User" Association="Self.FK_DeliveryMan_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="DeliveryMan" EntitySet="DeliveryMen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Publisher" Association="Self.FK_Journal_Publisher">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="Journal" EntitySet="Journals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_SubCategory" Association="Self.FK_Journal_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="Journal" EntitySet="Journals" />
+          </AssociationSet>
+          <AssociationSet Name="UserDetails" Association="Self.UserDetails">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Publisher" EntitySet="Publishers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities5">
+          <EntitySetMapping Name="AssignmentJournals">
+            <EntityTypeMapping TypeName="Model.AssignmentJournal">
+              <MappingFragment StoreEntitySet="AssignmentJournal">
+                <ScalarProperty Name="JournalDeliveryAssng" ColumnName="JournalDeliveryAssng" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DeliveryManID" ColumnName="DeliveryManID" />
+                <ScalarProperty Name="PaymentUpdate" ColumnName="PaymentUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="Model.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorDivision" ColumnName="AuthorDivision" />
+                <ScalarProperty Name="AuthorArea" ColumnName="AuthorArea" />
+                <ScalarProperty Name="AuthorAddress" ColumnName="AuthorAddress" />
+                <ScalarProperty Name="AuthorPhoneNumber" ColumnName="AuthorPhoneNumber" />
+                <ScalarProperty Name="AuthorEmail" ColumnName="AuthorEmail" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="AuthorBIO" ColumnName="AuthorBIO" />
+                <ScalarProperty Name="AuthorFacebookPageUrl" ColumnName="AuthorFacebookPageUrl" />
+                <ScalarProperty Name="AuthorPageUrl" ColumnName="AuthorPageUrl" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="Model.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="BlogDetails" ColumnName="BlogDetails" />
+                <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
+                <ScalarProperty Name="BloggerID" ColumnName="BloggerID" />
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bloggers">
+            <EntityTypeMapping TypeName="Model.Blogger">
+              <MappingFragment StoreEntitySet="Blogger">
+                <ScalarProperty Name="BloggerID" ColumnName="BloggerID" />
+                <ScalarProperty Name="BloggerName" ColumnName="BloggerName" />
+                <ScalarProperty Name="BloggerAddress" ColumnName="BloggerAddress" />
+                <ScalarProperty Name="BloggerDivision" ColumnName="BloggerDivision" />
+                <ScalarProperty Name="BloggerArea" ColumnName="BloggerArea" />
+                <ScalarProperty Name="BloggerPhoneNumber" ColumnName="BloggerPhoneNumber" />
+                <ScalarProperty Name="BloggerEmail" ColumnName="BloggerEmail" />
+                <ScalarProperty Name="BloggerImage" ColumnName="BloggerImage" />
+                <ScalarProperty Name="BloggerBio" ColumnName="BloggerBio" />
+                <ScalarProperty Name="BloggerPageUrl" ColumnName="BloggerPageUrl" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="Model.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+                <ScalarProperty Name="BookDetails" ColumnName="BookDetails" />
+                <ScalarProperty Name="BookImage" ColumnName="BookImage" />
+                <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookOrderAssigns">
+            <EntityTypeMapping TypeName="Model.BookOrderAssign">
+              <MappingFragment StoreEntitySet="BookOrderAssign">
+                <ScalarProperty Name="BookorderID" ColumnName="BookorderID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DeliveryManID" ColumnName="DeliveryManID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Borrows">
+            <EntityTypeMapping TypeName="Model.Borrow">
+              <MappingFragment StoreEntitySet="Borrow">
+                <ScalarProperty Name="BorrowID" ColumnName="BorrowID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="CusomerID" ColumnName="CusomerID" />
+                <ScalarProperty Name="BorrowDate" ColumnName="BorrowDate" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="ReturnUpdate" ColumnName="ReturnUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyBooks">
+            <EntityTypeMapping TypeName="Model.BuyBook">
+              <MappingFragment StoreEntitySet="BuyBook">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyJournals">
+            <EntityTypeMapping TypeName="Model.BuyJournal">
+              <MappingFragment StoreEntitySet="BuyJournal">
+                <ScalarProperty Name="JournalOrderID" ColumnName="JournalOrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyJournalLists">
+            <EntityTypeMapping TypeName="Model.BuyJournalList">
+              <MappingFragment StoreEntitySet="BuyJournalList">
+                <ScalarProperty Name="BuyJournalID" ColumnName="BuyJournalID" />
+                <ScalarProperty Name="JournalID" ColumnName="JournalID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Model.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerImage" ColumnName="CustomerImage" />
+                <ScalarProperty Name="CustomerDivision" ColumnName="CustomerDivision" />
+                <ScalarProperty Name="CustomerArea" ColumnName="CustomerArea" />
+                <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryMen">
+            <EntityTypeMapping TypeName="Model.DeliveryMan">
+              <MappingFragment StoreEntitySet="DeliveryMan">
+                <ScalarProperty Name="DeliveryManID" ColumnName="DeliveryManID" />
+                <ScalarProperty Name="DeliveryManName" ColumnName="DeliveryManName" />
+                <ScalarProperty Name="DeliveryManAddress" ColumnName="DeliveryManAddress" />
+                <ScalarProperty Name="DeliveryManImage" ColumnName="DeliveryManImage" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Journals">
+            <EntityTypeMapping TypeName="Model.Journal">
+              <MappingFragment StoreEntitySet="Journal">
+                <ScalarProperty Name="JournalID" ColumnName="JournalID" />
+                <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+                <ScalarProperty Name="JournalDetails" ColumnName="JournalDetails" />
+                <ScalarProperty Name="JournalImage" ColumnName="JournalImage" />
+                <ScalarProperty Name="JournalPrice" ColumnName="JournalPrice" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="PublisherDetails" ColumnName="PublisherDetails" />
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderBookLists">
+            <EntityTypeMapping TypeName="Model.OrderBookList">
+              <MappingFragment StoreEntitySet="OrderBookList">
+                <ScalarProperty Name="BuyBookID" ColumnName="BuyBookID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OderID" ColumnName="OderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="Model.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="PublisherTitle" ColumnName="PublisherTitle" />
+                <ScalarProperty Name="PublisherImage" ColumnName="PublisherImage" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="Model.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubcategoryName" ColumnName="SubcategoryName" />
+                <ScalarProperty Name="CategoryDetailsID" ColumnName="CategoryDetailsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

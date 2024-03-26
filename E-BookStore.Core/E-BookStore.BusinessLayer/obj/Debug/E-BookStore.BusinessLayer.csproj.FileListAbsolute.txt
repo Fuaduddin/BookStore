@@ -11,8 +11,9 @@ E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\obj\Debug\E-BookStore.BusinessLayer.csproj.CopyComplete
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\obj\Debug\E-BookStore.BusinessLayer.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\obj\Debug\E-BookStore.BusinessLayer.pdb
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\E-BookStore.Utility.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\EntityFramework.dll
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\EntityFramework.xml
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\E-BookStore.DataLayerSqlProvider.dll.config
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\E-BookStore.Utility.dll
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\E-BookStore.Utility.pdb
 E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\E-BookStore.Utility.dll.config
-E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.BusinessLayer\bin\Debug\EntityFramework.xml

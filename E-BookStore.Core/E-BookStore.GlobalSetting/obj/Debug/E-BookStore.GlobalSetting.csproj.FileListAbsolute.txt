@@ -1,0 +1,5 @@
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.GlobalSetting\bin\Debug\E-BookStore.GlobalSetting.dll
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.GlobalSetting\bin\Debug\E-BookStore.GlobalSetting.pdb
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.GlobalSetting\obj\Debug\E-BookStore.GlobalSetting.csproj.CoreCompileInputs.cache
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.GlobalSetting\obj\Debug\E-BookStore.GlobalSetting.dll
+E:\Final Protfolio Update\Protfolios\E-Book Store\E-BookStore\E-BookStore.Web\E-BookStore.Core\E-BookStore.GlobalSetting\obj\Debug\E-BookStore.GlobalSetting.pdb
